@@ -66,7 +66,7 @@
       <h3>Atividades de Apoio ao Ensino</h3>
     </div>
     <br><br>
-
+     
     <form  (ngSubmit)="onSubmitApoioAoEnsino()" class="col s6">
       <div>
         <p>Atividade : </p>
@@ -77,8 +77,12 @@
             {{atividade.nome}}
           </option>
         </select>
-     <br>
+        <br>
         <button class="btn green" type="button" (click)='AdicionarAtvApoio()'>Adicionar atividade de apoio</button>
+        <div *ngIf="apoioAoEnsino.atividade=='Outros'" >
+          <p>tue</p>
+          <input value=true [(ngModel)]="ativar"  name="boolean">
+          </div>
 
         <br><br>
         <p>C.H Semanal: </p>
@@ -115,6 +119,7 @@
           <option *ngFor="let atividade of ArrayAtivDePesquisa">
             {{atividade.nome}}
           </option>
+       
         </select>
         <br>
         <button class="btn green" type="button" (click)='AdicionarAtvPesquisa()'>Adicionar atividade de pesquisa</button>
@@ -148,6 +153,7 @@
           <option *ngFor="let atividade of ArrayAtivDeExtensao">
             {{atividade.nome}}
           </option>
+         
         </select>
         <br>
         <button class="btn green" type="button" (click)='AdicionarAtvExtensao()'>Adicionar atividade de apoio</button>
@@ -195,6 +201,7 @@
           <option *ngFor="let atividade of ArrayAtivAdministrativo">
             {{atividade.nome}}
           </option>
+         
         </select>
         <br>
         <button class="btn green" type="button" (click)='AdicionarAtvAdministrativo()'>Adicionar atividade de apoio</button>

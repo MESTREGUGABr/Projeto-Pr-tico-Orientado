@@ -32,6 +32,7 @@ import { PeriodoService } from '../services/periodo.service';
 })
 export class TelaPitComponent implements OnInit {
 //---------------------------Nome do professor---------------------------------- //
+ativar;
   nomeDeUsuario=this.usuarioService.nome;
   email=this.usuarioService.email;
   componentesCurricularesEnviar:string='';
@@ -231,6 +232,7 @@ onSubmitApoioAoEnsino(){
 alert("A carga horária informada é inválida, o cadastro desta atividade não foi realizado!")
   
   }
+
   this.apoioAoEnsino.atividade='',
   this.apoioAoEnsino.chSemanal=0,
   this.apoioAoEnsino.lhp=''
@@ -238,10 +240,10 @@ alert("A carga horária informada é inválida, o cadastro desta atividade não 
 }
 
 AdicionarAtvApoio(){
-var AtvApoio = prompt("Atividade extra: ")
-this.AtividadeExtraApoio.nome = AtvApoio
-this.ArrayAtivDeApoioAoEnsino.push(this.AtividadeExtraApoio)
-}
+  var AtvApoio = prompt("Atividade extra: ")
+  this.AtividadeExtraApoio.nome = AtvApoio
+  this.ArrayAtivDeApoioAoEnsino.push(this.AtividadeExtraApoio)
+  }
   
 deleteApoioAoEnsino( event, atividade :ApoioAoEnsino){
   this.clearStateAula();
@@ -358,7 +360,6 @@ AdicionarAtvAdministrativo(){
   this.AtividadeExtraAdministrativo.nome = AtvAdministrativo
   this.ArrayAtivAdministrativo.push(this.AtividadeExtraAdministrativo)
   }
-  
   
 deleteAdministrativo( event, administrativo :Administrativo){
   this.clearStateAdministrativo();
