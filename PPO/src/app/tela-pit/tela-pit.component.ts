@@ -32,7 +32,6 @@ import { PeriodoService } from '../services/periodo.service';
 })
 export class TelaPitComponent implements OnInit {
 //---------------------------Nome do professor---------------------------------- //
-ativar;
   nomeDeUsuario=this.usuarioService.nome;
   email=this.usuarioService.email;
   componentesCurricularesEnviar:string='';
@@ -134,6 +133,17 @@ componentesCurriculares=[];
 
   AulasDoProf:Aulas[];
 
+  AtividadeExtraApoio: Atividade = {
+    id: "",
+    tipo: "",
+    nome: "",
+    ch: 0,
+    };
+  AtividadeExtraPesquisa = this.AtividadeExtraApoio;
+  AtividadeExtraExtensão = this.AtividadeExtraApoio;
+  AtividadeExtraAdministrativo = this.AtividadeExtraApoio;
+  AtividadeExtraPedagocia = this.AtividadeExtraApoio
+
 
   constructor(public periodoService:PeriodoService,public componenteCurricularService:ComponenteCurricularService,public cursosService:CursosService,public  usuarioService : UsuarioService,public router:Router,public atividadesService:AtividadesService,public aulasService:AulasService, public apoioAoEnsinoService:ApoioAoEnsinoService, public pesquisaService:PesquisaService, public extensaoService:ExtensaoService, public administrativoService:AdministrativoService) { 
   
@@ -221,11 +231,16 @@ onSubmitApoioAoEnsino(){
 alert("A carga horária informada é inválida, o cadastro desta atividade não foi realizado!")
   
   }
-
   this.apoioAoEnsino.atividade='',
   this.apoioAoEnsino.chSemanal=0,
   this.apoioAoEnsino.lhp=''
  
+}
+
+AdicionarAtvApoio(){
+var AtvApoio = prompt("Atividade extra: ")
+this.AtividadeExtraApoio.nome = AtvApoio
+this.ArrayAtivDeApoioAoEnsino.push(this.AtividadeExtraApoio)
 }
   
 deleteApoioAoEnsino( event, atividade :ApoioAoEnsino){
@@ -263,6 +278,11 @@ alert("A carga horária informada é inválida, o cadastro desta atividade não 
   this.pesquisa.chSemanal=0
  
 }
+AdicionarAtvPesquisa(){
+  var AtvPesquisa = prompt("Atividade de pesquisa: ")
+  this.AtividadeExtraPesquisa.nome = AtvPesquisa
+  this.ArrayAtivDePesquisa.push(this.AtividadeExtraPesquisa)
+  }
   
 deletePesquisa( event, atividade :Pesquisa){
   this.clearStateAula();
@@ -296,6 +316,11 @@ alert("A carga horária informada é inválida, o cadastro desta atividade não 
   this.extensao.chSemanal=0,
  this.extensao.participacao=''
 }
+AdicionarAtvExtensao(){
+  var AtvExtensao = prompt("Atividade de extensão: ")
+  this.AtividadeExtraExtensão.nome = AtvExtensao
+  this.ArrayAtivDeExtensao.push(this.AtividadeExtraExtensão)
+  }
   
 deleteExtensao( event, extensao :Extensao){
   this.clearStateExtensao();
@@ -328,6 +353,12 @@ alert("A carga horária informada é inválida, o cadastro desta atividade não 
   this.administrativo.chSemanal=0,
  this.administrativo.portaria=''
 }
+AdicionarAtvAdministrativo(){
+  var AtvAdministrativo = prompt("Atividade de Administrativa Pedagógica: ")
+  this.AtividadeExtraAdministrativo.nome = AtvAdministrativo
+  this.ArrayAtivAdministrativo.push(this.AtividadeExtraAdministrativo)
+  }
+  
   
 deleteAdministrativo( event, administrativo :Administrativo){
   this.clearStateAdministrativo();
