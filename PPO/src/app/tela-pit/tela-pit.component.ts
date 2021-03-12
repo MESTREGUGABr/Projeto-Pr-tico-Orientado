@@ -140,6 +140,7 @@ componentesCurriculares=[];
     nome: "",
     ch: 0,
     };
+
   AtividadeExtraPesquisa = this.AtividadeExtraApoio;
   AtividadeExtraExtensão = this.AtividadeExtraApoio;
   AtividadeExtraAdministrativo = this.AtividadeExtraApoio;
@@ -280,6 +281,7 @@ alert("A carga horária informada é inválida, o cadastro desta atividade não 
   this.pesquisa.chSemanal=0
  
 }
+
 AdicionarAtvPesquisa(){
   var AtvPesquisa = prompt("Atividade de pesquisa: ")
   this.AtividadeExtraPesquisa.nome = AtvPesquisa
@@ -318,6 +320,7 @@ alert("A carga horária informada é inválida, o cadastro desta atividade não 
   this.extensao.chSemanal=0,
  this.extensao.participacao=''
 }
+
 AdicionarAtvExtensao(){
   var AtvExtensao = prompt("Atividade de extensão: ")
   this.AtividadeExtraExtensão.nome = AtvExtensao
@@ -355,6 +358,7 @@ alert("A carga horária informada é inválida, o cadastro desta atividade não 
   this.administrativo.chSemanal=0,
  this.administrativo.portaria=''
 }
+
 AdicionarAtvAdministrativo(){
   var AtvAdministrativo = prompt("Atividade de Administrativa Pedagógica: ")
   this.AtividadeExtraAdministrativo.nome = AtvAdministrativo
